@@ -1,0 +1,50 @@
+<mat-toolbar>
+        <mat-toolbar-row>
+                Lista de usuários      
+          <button mat-icon-button color="primary" routerLink="novo">
+            <mat-icon matTooltip="Cadastrar">add</mat-icon>
+          </button>
+          <button mat-raised-button routerLink="pacientes">
+                  usuários
+          </button>
+            
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <app-ng-content-componet>
+              <div header>header</div>
+              <div class="menu">menu</div>
+              <div conteudo>
+                <div class="content">
+                  <table mat-table [dataSource]="usuarios" >                                 
+                  
+                    <ng-container matColumnDef="login">
+                      <th mat-header-cell *matHeaderCellDef> login</th>
+                      <td mat-cell *matCellDef="let usuario"> {{ usuario.login }} </td>
+                    </ng-container>                                     
+                  
+                    <ng-container matColumnDef="acoes">
+                      <th mat-header-cell *matHeaderCellDef>  </th>
+                      <td mat-cell *matCellDef="let usuario">
+                        <div class="acoes">
+                          <button color="warn" mat-flat-button (click)="remover(usuario)">
+                            Remover
+                          </button>
+                  
+                          <button color="primary" mat-flat-button (click)="editar(usuario)">
+                            Editar
+                          </button>
+                        </div>
+                      </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+                    <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+                  </table>
+                </div>
+              </div>
+          <div footer>footer</div>
+      </app-ng-content-componet>
+            
+           
+            
+            

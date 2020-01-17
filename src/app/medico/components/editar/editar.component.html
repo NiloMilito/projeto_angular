@@ -1,0 +1,59 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button matTooltip="Voltar" (click)="voltar()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>{{ title }}
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="edit">
+  <form [formGroup]="formulario" class="mat-elevation-z3" (ngSubmit)="enviar()">
+
+    <mat-form-field>
+      <input type="text"
+             matInput
+             placeholder="Nome"
+             name="nome"
+             formControlName="nome">
+      <mat-error *ngIf="nome.errors?.required">
+        Nome é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text"
+             matInput
+             placeholder="Email"
+             formControlName="email"
+             name="email">
+
+      <mat-error *ngIf="email.errors?.required">
+        Email é obrigatório
+      </mat-error>
+      <mat-error *ngIf="email.errors?.emailInvalido">
+        Email inválido {{email.errors?.emailInvalido.descricao}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="text"
+             matInput
+             placeholder="CRM"
+             name="crm"
+             formControlName="crm"
+      >
+
+      <mat-error *ngIf="crm.errors?.required">
+        CRM é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <div class="action">
+      <button mat-raised-button type="submit" color="primary">
+        Enviar
+      </button>
+    </div>
+
+  </form>
+</div>
+

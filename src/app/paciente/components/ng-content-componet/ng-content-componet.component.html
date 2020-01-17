@@ -1,0 +1,26 @@
+<div class="content">
+  <div class="header">
+    <ng-content select="[header]"></ng-content>
+  </div>
+
+  <div class="conteudo">
+    <div class="menu">
+        <ng-content select=".menu"></ng-content>   
+        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item color="primary" routerLink="medicos">Medicos
+            <mat-icon matTooltip="Médicos">navigate_next</mat-icon>
+          </button>     
+          <button mat-menu-item color="primary" routerLink="pacientes">Pacientes
+            <mat-icon matTooltip="Pacientes">navigate_next</mat-icon>
+          </button>
+          <button mat-menu-item color="primary" routerLink="usuarios">Usuarios
+            <mat-icon matTooltip="Usuários">navigate_next</mat-icon>
+          </button>
+        </mat-menu>
+    </div>
+    <ng-content select="[conteudo]"></ng-content>
+  </div>
+
+  <ng-content select="[footer]"></ng-content>
+</div>

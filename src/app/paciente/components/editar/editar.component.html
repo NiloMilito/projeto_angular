@@ -1,0 +1,109 @@
+<mat-toolbar>
+        <mat-toolbar-row>
+          <button mat-icon-button matTooltip="Voltar" (click)="voltar()">
+            <mat-icon>arrow_back</mat-icon>
+          </button>{{ title }}
+        </mat-toolbar-row>
+      </mat-toolbar>
+      
+      <div class="edit">
+        <form [formGroup]="formulario" class="mat-elevation-z3" (ngSubmit)="enviar()">
+      
+          <mat-form-field>
+            <input type="text"
+                   matInput
+                   placeholder="Nome"
+                   name="nome"
+                   formControlName="nome">
+            <mat-error *ngIf="nome.errors?.required">
+              Nome é obrigatório
+            </mat-error>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input type="text"
+                   matInput
+                   placeholder="Email"
+                   formControlName="email"
+                   name="email">
+      
+            <mat-error *ngIf="email.errors?.required">
+              Email é obrigatório
+            </mat-error>
+            <mat-error *ngIf="email.errors?.emailInvalido">
+              Email inválido {{email.errors?.emailInvalido.descricao}}
+            </mat-error>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <input type="text"
+                   matInput
+                   placeholder="CPF"
+                   name="cpf"
+                   formControlName="cpf">      
+            <mat-error *ngIf="cpf.errors?.required">
+              CPF é obrigatório
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input type="text"
+                     matInput
+                     placeholder="telefone"
+                     name="telefone"
+                     formControlName="telefone" />  
+          </mat-form-field>
+
+          <mat-form-field>
+              <input type="text"
+                     matInput
+                     placeholder="CEP"
+                     name="cep"
+                     formControlName="cep">
+        
+              <mat-error *ngIf="cep.errors?.required">
+                CEP é obrigatório
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input type="text"
+                     matInput
+                     placeholder="Logradouro"
+                     name="logradouro"
+                     formControlName="logradouro">           
+          </mat-form-field>
+          <mat-form-field>
+              <input type="text"
+                     matInput
+                     placeholder="Complemento"
+                     name="complemento"
+                     formControlName="complemento">           
+          </mat-form-field>
+
+          <mat-form-field>
+              <input type="text"
+                     matInput
+                     placeholder="Bairro"
+                     name="bairro"
+                     formControlName="bairro">           
+          </mat-form-field>
+
+          <mat-form-field>
+              <input type="text"
+                     matInput
+                     placeholder="UF"
+                     name="uf"
+                     formControlName="uf">           
+          </mat-form-field>
+      
+          <div class="action">
+            <button mat-raised-button type="submit" color="primary">
+              Enviar
+            </button>
+          </div>
+      
+        </form>
+      </div>
+      
+      
